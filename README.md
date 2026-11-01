@@ -1,85 +1,95 @@
 # Manutenção Preditiva com Python
 
-Projeto de análise de dados aplicado à **Engenharia Mecânica**, desenvolvido para simular o monitoramento das condições operacionais de uma máquina e identificar sinais de possível falha antes de uma parada crítica.
+Projeto de **Análise de Dados aplicada à Engenharia Mecânica**, desenvolvido para simular o monitoramento das condições operacionais de um equipamento e identificar sinais de degradação antes de uma possível falha.
+
+O projeto utiliza dados simulados de sensores, analisa **temperatura, vibração e pressão** e gera automaticamente gráficos, um painel de monitoramento e um diagnóstico da condição do equipamento.
 
 ![Painel de Manutenção Preditiva](painel_manutencao_preditiva.png)
-O projeto utiliza dados simulados de sensores para acompanhar **temperatura, vibração e pressão**, gerar visualizações e emitir automaticamente um diagnóstico de risco.
 
-## Objetivo
+## 🎯 Objetivo
 
-Demonstrar como Python e análise de dados podem ser utilizados em um cenário de **manutenção preditiva**, transformando medições de sensores em informações úteis para apoiar decisões de manutenção.
+Demonstrar como **Python e análise de dados** podem ser aplicados à manutenção industrial para transformar medições de sensores em informações úteis para tomada de decisão.
 
-O sistema busca identificar alterações progressivas nos parâmetros operacionais da máquina e gerar um alerta quando os indicadores sugerem uma condição anormal.
+A análise acompanha a evolução dos parâmetros operacionais e identifica alterações que podem indicar deterioração das condições do equipamento.
 
-## Variáveis monitoradas
+## 📊 Variáveis monitoradas
 
-- Temperatura da máquina
-- Vibração da máquina
-- Pressão da máquina
+- Temperatura
+- Vibração
+- Pressão
 - Evolução dos indicadores ao longo do tempo
 
-## Diagnóstico automático
+## ⚙️ Diagnóstico automático
 
-Além da visualização dos dados, o código analisa o comportamento dos indicadores.
+Além da visualização dos dados, o programa aplica regras de análise sobre o comportamento dos indicadores.
 
-No cenário simulado utilizado neste projeto foram identificados:
+No cenário simulado foram identificadas tendências como:
 
-- aumento da vibração;
+- aumento progressivo da vibração;
 - redução da pressão;
-- alteração gradual das condições operacionais.
+- alteração das condições operacionais do equipamento.
 
-Resultado apresentado pelo sistema:
+O sistema então gera automaticamente um diagnóstico de condição.
+
+### Resultado do cenário analisado
 
 **STATUS: RISCO ELEVADO DE FALHA**
 
 **Recomendação: programar inspeção e manutenção.**
 
-## Tecnologias utilizadas
+> Este projeto utiliza uma lógica baseada em regras e tendências dos sensores. Não se trata ainda de um modelo de Machine Learning para previsão de falhas.
+
+## 🛠️ Tecnologias utilizadas
 
 - Python
 - Pandas
 - NumPy
 - Matplotlib
 - Visual Studio Code
+- Git
+- GitHub
 
-## Funcionamento
+## 🔄 Fluxo da análise
 
-O fluxo do projeto é:
-
-1. Geração/carregamento dos dados dos sensores.
-2. Organização dos dados com Pandas.
+1. Carregamento dos dados dos sensores.
+2. Organização e tratamento dos dados com Pandas.
 3. Análise da evolução das variáveis.
-4. Comparação dos indicadores ao longo do período.
+4. Avaliação das tendências operacionais.
 5. Aplicação das regras de diagnóstico.
 6. Identificação do nível de risco.
-7. Geração automática do painel de monitoramento.
-8. Exportação do resultado em imagem.
+7. Geração dos gráficos individuais.
+8. Geração automática do painel de monitoramento.
+9. Exportação das visualizações em formato PNG.
 
-## Painel de monitoramento
+## 📈 Visualizações geradas
 
-O projeto gera automaticamente o arquivo:
+O projeto gera automaticamente:
 
-`painel_manutencao_preditiva.png`
+- `grafico_temperatura.png`
+- `grafico_vibracao.png`
+- `grafico_pressao.png`
+- `painel_manutencao_preditiva.png`
 
-O painel apresenta três gráficos:
+O painel consolida os principais indicadores e facilita a identificação visual de mudanças nas condições de operação.
 
-- Temperatura da Máquina
-- Vibração da Máquina
-- Pressão da Máquina
-
-Também apresenta diretamente no painel o diagnóstico calculado pelo programa, facilitando a interpretação dos resultados.
-
-## Estrutura do projeto
+## 📁 Estrutura do projeto
 
 ```text
 manutencao_preditiva/
 │
 ├── analise_manutencao.py
+├── dados_maquina.csv
+├── grafico_pressao.png
+├── grafico_temperatura.png
+├── grafico_vibracao.png
 ├── painel_manutencao_preditiva.png
+├── .gitignore
 └── README.md
 ```
 
-## Como executar
+## ▶️ Como executar
+
+Clone o repositório ou faça o download dos arquivos.
 
 Com Python instalado, instale as bibliotecas necessárias:
 
@@ -93,36 +103,39 @@ Depois execute:
 python analise_manutencao.py
 ```
 
-O programa realizará a análise, exibirá o diagnóstico no terminal e abrirá o painel gráfico.
+O programa realizará a análise dos dados, exibirá o diagnóstico no terminal e gerará as visualizações do monitoramento.
 
-## Aplicação na Engenharia
+## 🏭 Aplicação na Engenharia
 
-Em um ambiente industrial real, um projeto desse tipo poderia receber dados provenientes de sensores instalados em motores, bombas, rolamentos, compressores ou outros equipamentos.
+Em uma aplicação industrial real, uma solução semelhante poderia receber dados diretamente de sensores instalados em equipamentos como:
 
-Com dados históricos suficientes, o projeto poderia evoluir para modelos mais avançados capazes de:
+- motores;
+- bombas;
+- rolamentos;
+- compressores;
+- redutores;
+- ventiladores industriais.
 
-- detectar anomalias automaticamente;
-- calcular indicadores de condição;
-- acompanhar tendências de degradação;
-- estimar probabilidade de falha;
-- auxiliar no planejamento de manutenção;
-- reduzir paradas não programadas.
+O monitoramento contínuo desses dados pode contribuir para a identificação antecipada de condições anormais e apoiar estratégias de manutenção baseada em condição.
 
-## Próximas evoluções
+## 🚀 Possíveis evoluções
 
-Como continuidade, o projeto pode receber:
+O projeto pode evoluir com:
 
-- dados reais provenientes de sensores;
+- aquisição de dados reais por sensores;
+- integração com ESP32 e sistemas IoT;
 - banco de dados para armazenamento histórico;
 - dashboard interativo;
 - limites operacionais configuráveis;
 - análise estatística;
 - detecção automática de anomalias;
 - modelos de Machine Learning;
-- integração com ESP32 ou sistemas IoT.
+- estimativa de probabilidade de falha;
+- indicadores de saúde do equipamento;
+- integração com sistemas de manutenção.
 
-## Sobre o projeto
+## 💡 Contexto do projeto
 
-Este projeto foi desenvolvido como parte do meu portfólio, integrando conceitos de **Engenharia Mecânica, Python e Análise de Dados**.
+Este projeto faz parte do meu portfólio e integra conhecimentos de **Engenharia Mecânica, Python e Análise de Dados**.
 
-O objetivo é demonstrar, de forma prática, como dados podem ser utilizados para apoiar decisões relacionadas à confiabilidade e manutenção de equipamentos.
+A proposta é demonstrar de forma prática como dados operacionais podem ser utilizados para apoiar decisões relacionadas à **manutenção, confiabilidade e desempenho de equipamentos**.
